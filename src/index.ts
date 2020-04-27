@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-use-before-define */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import fs from 'fs-extra';
 import path from 'path';
 import { execSync } from 'child_process';
