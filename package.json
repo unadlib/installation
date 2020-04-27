@@ -1,0 +1,48 @@
+{
+  "name": "installation",
+  "version": "0.0.7",
+  "description": "An installation template tool",
+  "keywords": [
+    "project generator"
+  ],
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "tsc",
+    "commit": "yarn git-cz"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^2.29.0",
+    "chalk": "3.0.0",
+    "commander": "4.1.0",
+    "cross-spawn": "7.0.1",
+    "envinfo": "7.5.0",
+    "fs-extra": "8.1.0",
+    "hyperquest": "2.1.3",
+    "inquirer": "7.0.4",
+    "semver": "6.3.0",
+    "tar-pack": "3.4.1",
+    "tmp": "0.1.0",
+    "validate-npm-package-name": "3.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.2",
+    "@typescript-eslint/eslint-plugin": "^2.29.0",
+    "commitizen": "^4.0.4",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
