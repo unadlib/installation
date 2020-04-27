@@ -6,7 +6,7 @@ on:
 
 jobs:
   publish-npm:
-    needs: build
+    name: publish-npm
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,7 +14,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: yarn install, build, and test
+      - name: yarn install, build, test and publish
         run: |
           yarn install
           yarn build
