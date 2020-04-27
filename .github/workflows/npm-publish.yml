@@ -5,8 +5,23 @@ on:
     types: [created]
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: yarn install, build, and test
+        run: |
+          yarn install
+          yarn build
+          yarn test
+        env:
+          CI: true
+
   publish-npm:
-    name: publish-npm
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,11 +29,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - name: yarn install, build, test and publish
-        run: |
-          yarn install
-          yarn build
-          yarn test
-          npm publish
+      - run: yarn build
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
