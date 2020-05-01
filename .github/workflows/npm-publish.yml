@@ -16,7 +16,9 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: yarn test
+      - run: echo "$VERSION"
       - run: npm publish
         env:
+          VERSION: ${{steps.get_version.outputs.VERSION}}
           NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
           CI: true
