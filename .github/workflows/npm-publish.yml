@@ -16,6 +16,9 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: yarn test
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
       - run: echo ${{steps.get_version.outputs.VERSION}}
       - run: npm publish
         env:
