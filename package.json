@@ -1,6 +1,6 @@
 {
   "name": "installation",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "An installation template tool",
   "keywords": [
     "project generator"
