@@ -131,7 +131,7 @@ export async function run(
   originalDirectory: string,
   template: string,
   useYarn: boolean,
-  usePnp: boolean
+  usePnp: boolean,
 ) {
   try {
     const allDependencies = [templatePackageName];
@@ -248,8 +248,14 @@ export async function run(
         false
       );
     }
-
-    console.log(chalk.yellow('Done.'));
+    console.log();
+    console.log(chalk.green('Created successfully.'));
+    console.log();
+    console.log(`Run the following command to start ${chalk.cyan(appName)} project:`);
+    console.log();
+    console.log(`  ${chalk.cyan(`cd ${appName}`)}`);
+    console.log(`  ${chalk.cyan('yarn start')}`);
+    console.log();
   } catch (reason) {
     console.log();
     console.log('Aborting installation.');
