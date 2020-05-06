@@ -254,7 +254,7 @@ export async function run(
     console.log(`Run the following command to start ${chalk.cyan(appName)} project:`);
     console.log();
     console.log(`  ${chalk.cyan(`cd ${appName}`)}`);
-    console.log(`  ${chalk.cyan('yarn start')}`);
+    console.log(`  ${chalk.cyan(`${useYarn? 'yarn': 'npm'} start`)}`);
     console.log();
   } catch (reason) {
     console.log();
