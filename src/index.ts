@@ -215,6 +215,8 @@ export async function run(
       JSON.stringify(appPackage, null, 2) + os.EOL
     );
 
+    removeTemplatePackage(templatePackageName, useYarn);
+
     if (templateJson.devDependencies) {
       const dependencies = Object.entries(
         templateJson.devDependencies
@@ -291,6 +293,30 @@ export async function run(
       fs.removeSync(path.join(root));
     }
     console.log('Done.');
+    process.exit(1);
+  }
+}
+
+export function removeTemplatePackage(templateName: string,  useYarn: boolean) {
+  let command;
+  let remove;
+
+  if (useYarn) {
+    command = 'yarn';
+    remove = 'remove';
+  } else {
+    command = 'npm';
+    remove = 'uninstall';
+  }
+
+  console.log(`Removing ${templateName} package...`);
+  console.log();
+
+  const childProcess = spawn.sync(command, [remove, templateName], {
+    stdio: 'inherit',
+  });
+  if (childProcess.status !== 0) {
+    console.error(`${command} failed`);
     process.exit(1);
   }
 }
